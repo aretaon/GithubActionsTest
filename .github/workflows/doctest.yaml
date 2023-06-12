@@ -45,3 +45,4 @@ jobs:
           file_pattern: '**.svg'
           repository: tests/badges
           push_options: --force
+          disable_globbing: true
