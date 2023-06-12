@@ -47,6 +47,9 @@ jobs:
           commit_user_name: Gitea Actions Bot
           commit_user_email: l-biochemie@biozentrum.uni-wuerzburg.de
           create_branch: true
-          file_pattern: 'tests/badges/*.svg'
-          push_options: --force
+          file_pattern: '*.svg'
           disable_globbing: true
+          push_options: '--force'
+          skip_dirty_check: true
+          skip_fetch: true
+          skip_checkout: true
