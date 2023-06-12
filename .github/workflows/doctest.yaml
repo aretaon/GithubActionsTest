@@ -23,11 +23,12 @@ jobs:
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Build docs
         run: |
-          docsrc\make html
+          docsrc/make html
       - name: Test with pytest
         run: |
           pytest testing
-      - uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
+      - name: Push to docs
+        uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated badges
           branch: docs
