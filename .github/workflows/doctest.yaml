@@ -21,6 +21,16 @@ jobs:
           python -m pip install --upgrade pip
                     pip install ruff pytest
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Build docs
+        run: |
+          docsrc\make html
       - name: Test with pytest
         run: |
           pytest testing
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated badges
+          branch: docs
+          commit_user_name: Gitea Actions Bot
+          commit_user_email: l-biochemie@biozentrum.uni-wuerzburg.de
+          create_branch: true
