@@ -13,7 +13,7 @@ The test module contains...
 The plot_something function
 ---------------------------
 
-.. automodule:: test.my_testfile_with_doctest
+.. automodule:: mypackage.my_testfile_with_doctest
    :members:
 
 Indices and tables

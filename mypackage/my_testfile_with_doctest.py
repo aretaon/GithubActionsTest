@@ -33,16 +33,15 @@ def plot_something(x: str, y: str) -> plt.figure:
         >>> fig = plot_something('species', 'petal_length')
         >>> fig.show()
 
+    .. testsetup::
+
+        >>> fig = plot_something('species', 'petal_length')
+        >>> data = fig.axes[0].collections[0].get_offsets().data
+
     .. testcode::
         :hide:
 
-        fig = plot_something('species', 'petal_length')
-        data = fig.axes[0].collections[0].get_offsets().data
-        print(np.median(data[data.T[0] == 1].T[1]))
-
-    .. testoutput::
-        :hide:
-
+        >>> np.median(data[data.T[0] == 1].T[1])
         4.35
     """
     iris = sns.load_dataset("iris")

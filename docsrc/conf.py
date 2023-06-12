@@ -28,6 +28,7 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.doctest",
     'matplotlib.sphinxext.plot_directive',
+    'pytest_doctestplus.sphinx.doctestplus',
     'numpydoc'
 ]
 # dont rely on a manually generated class members list
