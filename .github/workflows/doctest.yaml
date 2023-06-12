@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: https://github.com/actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
@@ -28,7 +28,8 @@ jobs:
           dir_docs: docsrc
       - name: Test with pytest
         run: |
-          pytest testing
+          mkdir tests/badges
+          pytest tests
       - name: Push to docs
         uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
         with:
