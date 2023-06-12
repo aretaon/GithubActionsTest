@@ -22,8 +22,10 @@ jobs:
                     pip install ruff pytest
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Build docs
-        run: |
-          docsrc/make html
+        uses: https://github.com/uibcdf/action-sphinx-docs-to-gh-pages@v2.0.0
+        with:
+          branch: main
+          dir_docs: docsrc
       - name: Test with pytest
         run: |
           pytest testing
