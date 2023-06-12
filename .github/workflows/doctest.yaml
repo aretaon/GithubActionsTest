@@ -31,16 +31,11 @@ jobs:
           mkdir -p tests/badges
           pytest tests
       - name: Push to badges
-        run: |
-          rm .gitignore
-          touch .gitignore
-          echo "*" >> .gitignore
-          set +o histexpand
-          echo "!tests/badges" >> .gitignore
-      - uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
+        uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated badges
           branch: badges
           commit_user_name: Gitea Actions Bot
           commit_user_email: l-biochemie@biozentrum.uni-wuerzburg.de
           create_branch: true
+          file_pattern: '*.svg'
