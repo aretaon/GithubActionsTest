@@ -31,7 +31,9 @@ jobs:
           mkdir -p tests/badges
           pytest tests
           ls -ltprah tests
-          ls -tprah tests/badges
+          ls -ltprah tests/badges
+      - name: Remove gitignore
+        run: rm .gitignore
       - name: Push to badges
         uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
         with:
