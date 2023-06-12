@@ -51,7 +51,7 @@ jobs:
 #          push_options: --force
 #          #disable_globbing: true
       - name: Push to badges
-        uses: s0/git-publish-subdir-action@v2.6.0
+        uses: https://github.com/s0/git-publish-subdir-action@v2.6.0
         with:
           REPO: self
           BRANCH: badges
