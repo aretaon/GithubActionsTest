@@ -28,7 +28,7 @@ jobs:
           dir_docs: docsrc
       - name: Test with pytest
         run: |
-          mkdir tests/badges
+          mkdir -p tests/badges
           pytest tests
       - name: Push to docs
         uses: https://github.com/stefanzweifel/git-auto-commit-action@v4

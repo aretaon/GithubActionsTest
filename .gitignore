@@ -7,5 +7,5 @@
 /.idea/modules.xml
 /.idea/other.xml
 /.idea/vcs.xml
-/testing/badges/*
+/tests/badges/*
 /.coverage
