@@ -30,6 +30,8 @@ jobs:
         run: |
           mkdir -p tests/badges
           pytest tests
+          ls -ltprah tests
+          ls -tprah tests/badges
       - name: Push to badges
         uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
         with:
