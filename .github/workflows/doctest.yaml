@@ -45,3 +45,4 @@ jobs:
         uses: https://github.com/ad-m/github-push-action@v0.6.0
         with:
           branch: badges
+          github_token: ${{ secrets.GITHUB_TOKEN }}"
