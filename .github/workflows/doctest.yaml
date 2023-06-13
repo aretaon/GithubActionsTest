@@ -35,17 +35,13 @@ jobs:
       - name: Remove gitignore
         run: |
           rm .gitignore
+      - name: Rewrite history
+        run: |
+          git config user.name "Gitea Actions"
+          git config user.email "gitea@bc2-silicon.biozentrum.uni-wuerzburg.de"
+          git checkout -b badges
+          git filter-branch --prune-empty --subdirectory-filter tests/badges/ badges
       - name: Push to badges
-        uses: https://github.com/stefanzweifel/git-auto-commit-action@v4
+        uses: ad-m/github-push-action@v0.6.0
         with:
-          commit_message: Updated badges
           branch: badges
-          commit_user_name: Gitea Actions Bot
-          commit_user_email: l-biochemie@biozentrum.uni-wuerzburg.de
-          create_branch: true
-          file_pattern: '*.svg'
-          disable_globbing: true
-          push_options: '--force'
-          skip_dirty_check: true
-          skip_fetch: true
-          skip_checkout: true
