@@ -41,4 +41,4 @@ jobs:
           git add .
           git commit -m 'Updated badges'
           git filter-branch --prune-empty --subdirectory-filter tests/badges/ badges
-          git push origin badges
+          git push --force origin badges
