@@ -42,6 +42,6 @@ jobs:
           git checkout -b badges
           git filter-branch --prune-empty --subdirectory-filter tests/badges/ badges
       - name: Push to badges
-        uses: ad-m/github-push-action@v0.6.0
+        uses: https://github.com/ad-m/github-push-action@v0.6.0
         with:
           branch: badges
