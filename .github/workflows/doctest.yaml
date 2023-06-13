@@ -38,6 +38,7 @@ jobs:
           git config user.name "Gitea Actions"
           git config user.email "gitea@bc2-silicon.biozentrum.uni-wuerzburg.de"
           git checkout -b badges
+          git add .
           git commit -m 'Updated badges'
           git filter-branch --prune-empty --subdirectory-filter tests/badges/ badges
       - name: Push to badges
