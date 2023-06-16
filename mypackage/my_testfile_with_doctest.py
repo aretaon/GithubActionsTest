@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+from . import r_helper
+from subprocess import run, PIPE
 
+RFUNCTIONS, R = r_helper.return_r_path()
 
 def plot_something(x: str, y: str) -> plt.figure:
     """
@@ -49,3 +52,42 @@ def plot_something(x: str, y: str) -> plt.figure:
     sns.scatterplot(data=iris, x=x, y=y, ax=ax)
 
     return fig
+
+
+def a_function_with_R(test_string):
+    r"""
+    This function uses a local R installation to run a script and output the value
+
+    Parameters
+    ----------
+    test_string: str
+        A string to echo with R
+
+    Returns
+    -------
+    str
+        Output of rcode
+
+    Examples
+    --------
+    .. testsetup::
+
+        >>> r = a_function_with_R('Hello World')
+        Calling: ['C:\\Users\\jub29yk\\R\\R-4.2.1\\bin\\Rscript.exe', '--vanilla', 'C:\\Users\\jub29yk\\Documents\\Python Scripts\\actRunner-Test\\mypackage\\RFunctions.R', 'Hello World']
+
+    .. testcode::
+
+        >>> print(r)
+        [1] "Hello World"
+    """
+    command = [R, '--vanilla', RFUNCTIONS, test_string]
+    print(f"Calling: {command}")
+
+    p = run(command,
+            stdout=PIPE,
+            stderr=PIPE,
+            universal_newlines=True)
+
+    r_out = p.stdout.strip()
+
+    return r_out
