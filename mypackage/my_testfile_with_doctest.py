@@ -78,10 +78,11 @@ def a_function_with_R(test_string):
     command = [R, '--vanilla', RFUNCTIONS, test_string]
     print(f"Calling: {command}")
 
-    #p = run(command,
+    p = run(command,
     #        stdout=PIPE,
     #        stderr=PIPE,
-    #        universal_newlines=True)
+            timeout=25,
+            universal_newlines=True)
 
     #r_out = p.stdout.strip()
 
