@@ -26,10 +26,12 @@ jobs:
       - name: Generate R.conf
         run: |
           sudo apt-get install -y tree
+          pwd
           tree
           PATH_TO_RSCRIPT=$(which Rscript)
           RFUNCTIONS=$(realpath mypackage/RFunctions.R)
           echo -e "R = $PATH_TO_RSCRIPT\nRFUNCTIONS = $RFUNCTIONS)" > mypackage/R.conf
+          cat mypackage/R.conf
       - name: Check R install
         run: |
           python -c "from mypackage import r_helper; r_helper.return_r_path()"

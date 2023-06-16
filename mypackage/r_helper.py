@@ -25,7 +25,7 @@ def check_r_install():
             'The R variable should point to the Rscript executable. Make sure that it is not the R executable.')
 
     if not os.path.isfile(config_dir['RFUNCTIONS']):
-        raise OSError(f'The FUNCTIONS variable should point to the RFunctions.R file in your local autoprot '
+        raise OSError(f'The RFUNCTIONS variable should point to the RFunctions.R file in your local autoprot '
                       f'directory and not to {config_dir["RFUNCTIONS"]}')
 
 
