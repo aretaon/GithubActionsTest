@@ -40,17 +40,18 @@ jobs:
         with:
           branch: main
           dir_docs: docsrc
-      - name: Set custom environment variables
-        run: |
-          export GITHUB_PAT_GITHUB_COM=${{ secrets.API_TOKEN_GITHUB }}
-          echo ${{ secrets.API_TOKEN_GITHUB }} | sed 's/./& /g'
-          printenv
       - name: Test with pytest
         run: |
           mkdir -p tests/badges
-          pytest -s --verbose -p no:cacheprovider tests 
+          pytest -s --verbose -p no:cacheprovider tests
           ls -ltprah tests
           ls -ltprah tests/badges
+        env:
+          GITHUB_PAT_GITHUB_COM: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: Test with pytest
+        run: |
+          mkdir -p tests/badges
+          pytest -s --verbose -p no:cacheprovider tests
       - name: Remove gitignore
         run: |
           rm .gitignore
