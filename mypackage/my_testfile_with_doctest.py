@@ -79,8 +79,6 @@ def a_function_with_R(test_string):
     print(f"Calling: {command}")
 
     p = run(command,
-            stdout=PIPE,
-            stderr=STDOUT,
             timeout=180,
             universal_newlines=True)
 
