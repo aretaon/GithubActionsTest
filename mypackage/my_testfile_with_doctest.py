@@ -5,6 +5,7 @@ from subprocess import run, PIPE
 
 RFUNCTIONS, R = r_helper.return_r_path()
 
+
 def plot_something(x: str, y: str) -> plt.figure:
     """
     Testing plot function
@@ -70,14 +71,10 @@ def a_function_with_R(test_string):
 
     Examples
     --------
-    .. testsetup::
-
-        >>> r = a_function_with_R('Hello World')  # doctest: +SKIP
-
-    .. testcode::
-
-        >>> print(r)
-        [1] "Hello World"
+    >>> r = a_function_with_R('Hello World')  # doctest: +ELLIPSIS
+    Calling: [..., '--vanilla', ..., 'Hello World']
+    >>> print(r)
+    [1] "Hello World"
     """
     command = [R, '--vanilla', RFUNCTIONS, test_string]
     print(f"Calling: {command}")
