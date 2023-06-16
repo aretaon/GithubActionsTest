@@ -25,7 +25,9 @@ jobs:
             r-version: '4.2.1' # The R version to download (if necessary) and use.
       - name: Generate R.conf
         run: |
-          PATH_TO_RSCRIPT=$(which echo)
+          sudo apt-get install -y tree
+          tree
+          PATH_TO_RSCRIPT=$(which Rscript)
           RFUNCTIONS=$(realpath mypackage/RFunctions.R)
           echo -e "R = $PATH_TO_RSCRIPT\nRFUNCTIONS = $RFUNCTIONS)" > mypackage/R.conf
       - name: Check R install
