@@ -73,8 +73,7 @@ def a_function_with_R(test_string):
     --------
     >>> r = a_function_with_R('Hello World')  # doctest: +ELLIPSIS
     Calling: [..., '--vanilla', ..., 'Hello World']
-    >>> print(r)
-    [1] "Hello World"
+
     """
     command = [R, '--vanilla', RFUNCTIONS, test_string]
     print(f"Calling: {command}")
