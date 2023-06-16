@@ -12,11 +12,12 @@ BC_packages <- c("limma", "vsn", "RankProd", "pcaMethods", "impute", "Summarized
 github_packages <- c("cran/DMwR", "kreutz-lab/DIMAR")
 URL_install <- c("url::https://cran.r-project.org/src/contrib/Archive/imputation/imputation_1.3.tar.gz")
 
-for (package in c(CRAN_packages, BC_packages, github_packages){
-  if (!require(x,character.only = TRUE))
-  {
+for (package in c(CRAN_packages, BC_packages, github_packages)){
+  if (!require(x,character.only = TRUE)){
     pak::pkg_install(x)
-    if(!require(x,character.only = TRUE)) stop("Package not found")
+    if(!require(x,character.only = TRUE)){
+      stop("Package not found")
+    }
   }
 }
 
