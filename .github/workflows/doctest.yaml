@@ -43,7 +43,7 @@ jobs:
       - name: Test with pytest
         run: |
           mkdir -p tests/badges
-          pytest -s --verbose tests
+          pytest -s --verbose -p no:cacheprovider tests 
           ls -ltprah tests
           ls -ltprah tests/badges
       - name: Remove gitignore
