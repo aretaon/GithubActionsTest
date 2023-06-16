@@ -79,7 +79,7 @@ def a_function_with_R(test_string):
     print(f"Calling: {command}")
 
     p = run(command,
-            timeout=180,
+            #timeout=180,
             universal_newlines=True)
 
     r_out = p.stdout.strip()
