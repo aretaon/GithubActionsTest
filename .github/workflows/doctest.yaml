@@ -40,6 +40,11 @@ jobs:
         with:
           branch: main
           dir_docs: docsrc
+      - name: Set custom environment variables
+        run: |
+          # export GITHUB_PAT_GITHUB_COM=${{ secrets.API_TOKEN_GITHUB  }}
+          export GITHUB_PAT_GITHUB_COM="FAIL"
+          printenv
       - name: Test with pytest
         run: |
           mkdir -p tests/badges
