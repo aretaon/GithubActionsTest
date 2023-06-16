@@ -83,8 +83,6 @@ def a_function_with_R(test_string):
             timeout=180,
             universal_newlines=True)
 
-    #r_out = p.stdout.strip()
-
-    r_out = 'Test'
+    r_out = p.stdout.strip()
 
     return r_out
