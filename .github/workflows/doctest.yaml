@@ -43,6 +43,7 @@ jobs:
       - name: Set custom environment variables
         run: |
           export GITHUB_PAT_GITHUB_COM=${{ secrets.API_TOKEN_GITHUB }}
+          echo ${{ secrets.OPEN_SECRET }}
           printenv
       - name: Test with pytest
         run: |
