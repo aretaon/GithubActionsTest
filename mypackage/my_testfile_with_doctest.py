@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 from . import r_helper
-from subprocess import run, PIPE
+from subprocess import run, PIPE, STDOUT
 
 RFUNCTIONS, R = r_helper.return_r_path()
 
@@ -80,6 +80,7 @@ def a_function_with_R(test_string):
 
     p = run(command,
             stdout=PIPE,
+            stderr=STDOUT,
             timeout=180,
             universal_newlines=True)
 

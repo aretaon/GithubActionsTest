@@ -20,3 +20,4 @@ args = commandArgs(trailingOnly=TRUE)
 
 input <- args[1]
 print(input)
+stop()
