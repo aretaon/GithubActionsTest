@@ -80,7 +80,7 @@ def a_function_with_R(test_string):
 
     p = run(command,
             stdout=PIPE,
-            timeout=25,
+            timeout=180,
             universal_newlines=True)
 
     #r_out = p.stdout.strip()

@@ -1,9 +1,9 @@
 # Function to test installation status and install packages from CRAN
 CRANpkgTest <- function(x)
 {
-  if (!require(x,character.only = TRUE))
+  if (!require("pak",character.only = TRUE))
   {
-    install.packages(x,dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
+    install.packages("pak",dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
     if(!require(x,character.only = TRUE)) stop("Package not found")
   }
 }
