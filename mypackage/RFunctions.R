@@ -3,7 +3,7 @@ CRANpkgTest <- function(x)
 {
   if (!require(x,character.only = TRUE))
   {
-    install.packages(x,dep=TRUE, repos='https://ftp.fau.de/cran/', 'https://cloud.r-project.org')
+    install.packages(x,dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
     if(!require(x,character.only = TRUE)) stop("Package not found")
   }
 }
