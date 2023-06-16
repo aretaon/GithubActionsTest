@@ -48,10 +48,6 @@ jobs:
           ls -ltprah tests/badges
         env:
           GITHUB_PAT_GITHUB_COM: ${{ secrets.API_TOKEN_GITHUB }}
-      - name: Test with pytest
-        run: |
-          mkdir -p tests/badges
-          pytest -s --verbose -p no:cacheprovider tests
       - name: Remove gitignore
         run: |
           rm .gitignore
