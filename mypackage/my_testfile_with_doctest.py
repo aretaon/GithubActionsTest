@@ -72,8 +72,7 @@ def a_function_with_R(test_string):
     --------
     .. testsetup::
 
-        >>> r = a_function_with_R('Hello World')
-        Calling: ['C:\\Users\\jub29yk\\R\\R-4.2.1\\bin\\Rscript.exe', '--vanilla', 'C:\\Users\\jub29yk\\Documents\\Python Scripts\\actRunner-Test\\mypackage\\RFunctions.R', 'Hello World']
+        >>> r = a_function_with_R('Hello World')  # doctest: +SKIP
 
     .. testcode::
 
