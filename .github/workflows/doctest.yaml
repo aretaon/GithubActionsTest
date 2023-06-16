@@ -30,7 +30,7 @@ jobs:
           tree
           PATH_TO_RSCRIPT=$(which Rscript)
           RFUNCTIONS=$(realpath mypackage/RFunctions.R)
-          echo -e "R = $PATH_TO_RSCRIPT\nRFUNCTIONS = $RFUNCTIONS)" > mypackage/R.conf
+          echo -e "R = $PATH_TO_RSCRIPT\nRFUNCTIONS = $RFUNCTIONS" > mypackage/R.conf
           cat mypackage/R.conf
       - name: Check R install
         run: |
