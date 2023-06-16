@@ -7,12 +7,12 @@ if(!require("pak",character.only = TRUE)) stop("Package not found")
 
 # Collect all required packages as vectors and install with pak
 # see https://pak.r-lib.org/dev/reference/get-started.html
-CRAN_packages <- c("rrcovNA", "tidyverse", "devtools")
+CRAN_packages <- c("rrcovNA", "tidyverse")
 BC_packages <- c("limma", "vsn", "RankProd", "pcaMethods", "impute", "SummarizedExperiment")
 github_packages <- c("cran/DMwR", "kreutz-lab/DIMAR")
 URL_install <- c("url::https://cran.r-project.org/src/contrib/Archive/imputation/imputation_1.3.tar.gz")
 
-for (package in c(CRAN_packages, BC_packages, github_packages, URL_install)){
+for (package in c(github_packages, CRAN_packages, BC_packages, URL_install)){
     pak::pkg_install(package)
 }
 
