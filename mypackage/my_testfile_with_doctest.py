@@ -55,34 +55,34 @@ def plot_something(x: str, y: str) -> plt.figure:
     return fig
 
 
-def a_function_with_R(test_string):
-    r"""
-    This function uses a local R installation to run a script and output the value
-
-    Parameters
-    ----------
-    test_string: str
-        A string to echo with R
-
-    Returns
-    -------
-    str
-        Output of rcode
-
-    Examples
-    --------
-    >>> r = a_function_with_R('Hello World')  # doctest: +ELLIPSIS
-    Calling: [..., '--vanilla', ..., 'Hello World']
-
-    """
-    command = [R, '--vanilla', RFUNCTIONS, test_string]
-    print(f"Calling: {command}")
-
-    p = run(command,
-            stdout=PIPE,
-            stderr=PIPE,
-            universal_newlines=True)
-
-    r_out = p.stdout.strip()
-
-    return r_out
+# def a_function_with_R(test_string):
+#     r"""
+#     This function uses a local R installation to run a script and output the value
+#
+#     Parameters
+#     ----------
+#     test_string: str
+#         A string to echo with R
+#
+#     Returns
+#     -------
+#     str
+#         Output of rcode
+#
+#     Examples
+#     --------
+#     >>> r = a_function_with_R('Hello World')  # doctest: +ELLIPSIS
+#     Calling: [..., '--vanilla', ..., 'Hello World']
+#
+#     """
+#     command = [R, '--vanilla', RFUNCTIONS, test_string]
+#     print(f"Calling: {command}")
+#
+#     p = run(command,
+#             stdout=PIPE,
+#             stderr=PIPE,
+#             universal_newlines=True)
+#
+#     r_out = p.stdout.strip()
+#
+#     return r_out
