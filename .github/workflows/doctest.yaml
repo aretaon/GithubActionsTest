@@ -21,7 +21,7 @@ jobs:
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Set up R with r2u CRAN as Ubuntu Binaries
         run: |
-          wget https://github.com/eddelbuettel/r2u/blob/master/inst/scripts/add_cranapt_jammy.sh
+          wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
           rm add_cranapt_jammy.sh
