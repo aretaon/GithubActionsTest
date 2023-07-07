@@ -7,6 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: https://github.com/actions/checkout@v3
+      - name: Set up R with r2u CRAN as Ubuntu Binaries
+        run: |
+          wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
+          sudo chmod +x add_cranapt_jammy.sh
+          sudo ./add_cranapt_jammy.sh
+          sudo chmod -R 777 /usr/local/lib/R
+      - name: Install tmvtnorm
+        run: |
+          sudo R -q -e 'package.install("tmvtnorm")'
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
