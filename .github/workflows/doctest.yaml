@@ -16,10 +16,9 @@ jobs:
           wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
-          sudo chmod -R 777 /usr/local/lib/R
       - name: Install CRAN packages through apt
         run: |
-          sudo R -q -e 'install.packages("tmvtnorm")'
+          R -q -e 'install.packages("tmvtnorm")'
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
