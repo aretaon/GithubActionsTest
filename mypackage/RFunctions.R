@@ -1,4 +1,4 @@
-install.packages("tmvtnorm")
+install.packages("tmvtnorm", dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
 
 # First install pak with the standard installation routine
 if (!require("pak",character.only = TRUE))
