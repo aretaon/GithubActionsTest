@@ -17,7 +17,7 @@ jobs:
           rm add_cranapt_jammy.sh
       - name: Install R dependencies
         run: |
-          sudo Rscript --vanilla -e 'install.packages("tmvtnorm", dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
+          sudo Rscript --vanilla -e 'install.packages("tmvtnorm", dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))'
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
