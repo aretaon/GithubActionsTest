@@ -17,7 +17,7 @@ jobs:
           sudo chmod -R 777 /usr/local/lib/R
       - name: Install R dependencies
         run: |
-          sudo R -q -e 'install.packages("tmvtnorm")'
+          sudo Rscript mypackage/Rfunctions.R
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
