@@ -25,6 +25,9 @@ jobs:
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
           rm add_cranapt_jammy.sh
+      - name: Install R dependencies
+        run: |
+          Rscript mypackage/RFunctions.R
       - name: Generate R.conf
         run: |
           PATH_TO_RSCRIPT=$(which Rscript)
