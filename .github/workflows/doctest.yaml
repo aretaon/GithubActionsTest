@@ -13,6 +13,7 @@ jobs:
             r-version: '4.2.1' # The R version to download (if necessary) and use.
       - name: Set up R with r2u CRAN as Ubuntu Binaries
         run: |
+          echo 'options(repos=c(CRAN="https://cloud.r-project.org"))' >> ~/.Rprofile 
           wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
