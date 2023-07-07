@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: https://github.com/actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
           wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
-          rm add_cranapt_jammy.sh
+          sudo chmod -R 777 /usr/local/lib/R
       - name: Install R dependencies
         run: |
           Rscript --vanilla -e 'install.packages("tmvtnorm")'
