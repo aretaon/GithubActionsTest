@@ -13,13 +13,30 @@ jobs:
             r-version: '4.2.1' # The R version to download (if necessary) and use.
       - name: Set up R with r2u CRAN as Ubuntu Binaries
         run: |
-          echo 'options(repos=c(CRAN="https://cloud.r-project.org"))' >> ~/.Rprofile 
-          wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
-          sudo chmod +x add_cranapt_jammy.sh
-          sudo ./add_cranapt_jammy.sh
+          ## First: update apt and get keys
+          apt update -qq && apt install --yes --no-install-recommends wget ca-certificates gnupg
+          wget -q -O- https://eddelbuettel.github.io/r2u/assets/dirk_eddelbuettel_key.asc \
+              | tee -a /etc/apt/trusted.gpg.d/cranapt_key.asc
+          echo "deb [arch=amd64] https://r2u.stat.illinois.edu/ubuntu jammy main" > /etc/apt/sources.list.d/cranapt.list
+          apt update
+          wget -q -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
+              | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+          echo "deb [arch=amd64] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" > /etc/apt/sources.list.d/cran_r.list
+          apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 67C2D66C4B1D4339 51716619E084DAB9
+          apt update -qq
+          DEBIAN_FRONTEND=noninteractive apt install --yes --no-install-recommends r-base-core
+          echo "Package: *" > /etc/apt/preferences.d/99cranapt
+          echo "Pin: release o=CRAN-Apt Project" >> /etc/apt/preferences.d/99cranapt
+          echo "Pin: release l=CRAN-Apt Packages" >> /etc/apt/preferences.d/99cranapt
+          echo "Pin-Priority: 700"  >> /etc/apt/preferences.d/99cranapt
+          apt install --yes --no-install-recommends python3-{dbus,gi,apt}
+          Rscript -e 'install.packages("bspm", repos="https://ftp.fau.de/cran/")'
+          RHOME=$(R RHOME)
+          echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
+          echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
       - name: Install CRAN packages through apt
         run: |
-          R -q -e 'install.packages("tmvtnorm")'
+          sudo R -q -e 'install.packages("tmvtnorm")'
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
