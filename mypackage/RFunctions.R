@@ -1,9 +1,9 @@
-install.packages("tmvtnorm", dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
+install.packages("tmvtnorm")
 
 # First install pak with the standard installation routine
-if (!require("pak",character.only = TRUE))
+if (!require("pak")
 {
-install.packages("pak",dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
+install.packages("pak")
 if(!require("pak",character.only = TRUE)) stop("Package not found")
 }
 
