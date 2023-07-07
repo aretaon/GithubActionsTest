@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: https://github.com/actions/checkout@v3
+      - name: Set up R
+        uses: https://github.com/r-lib/actions/setup-r@v2
+        with:
+            r-version: '4.3.1' # The R version to download (if necessary) and use.
       - name: Set up R with r2u CRAN as Ubuntu Binaries
         run: |
           wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
           sudo chmod +x add_cranapt_jammy.sh
           sudo ./add_cranapt_jammy.sh
           sudo chmod -R 777 /usr/local/lib/R
-      - name: Install tmvtnorm
+      - name: Install CRAN packages through apt
         run: |
           sudo R -q -e 'install.packages("tmvtnorm")'
       - name: Set up Python
@@ -26,10 +30,6 @@ jobs:
           python -m pip install --upgrade pip
                     pip install ruff pytest
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Set up R
-        uses: https://github.com/r-lib/actions/setup-r@v2
-        with:
-            r-version: '4.3.1' # The R version to download (if necessary) and use.
       - name: Generate R.conf
         run: |
           sudo apt-get install -y tree
