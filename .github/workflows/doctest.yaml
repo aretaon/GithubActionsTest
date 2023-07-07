@@ -9,6 +9,15 @@ jobs:
 
     steps:
       - uses: https://github.com/actions/checkout@v3
+      - name: Set up R with r2u CRAN as Ubuntu Binaries
+        run: |
+          wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
+          sudo chmod +x add_cranapt_jammy.sh
+          sudo ./add_cranapt_jammy.sh
+          rm add_cranapt_jammy.sh
+      - name: Install R dependencies
+        run: |
+          sudo Rscript --vanilla -e 'install.packages("tmvtnorm", dep=TRUE, repos=c('https://ftp.fau.de/cran/', 'https://cloud.r-project.org'))
       - name: Set up Python
         uses: https://github.com/actions/setup-python@v4
         with:
@@ -19,15 +28,6 @@ jobs:
           python -m pip install --upgrade pip
                     pip install ruff pytest
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Set up R with r2u CRAN as Ubuntu Binaries
-        run: |
-          wget https://raw.githubusercontent.com/eddelbuettel/r2u/master/inst/scripts/add_cranapt_jammy.sh
-          sudo chmod +x add_cranapt_jammy.sh
-          sudo ./add_cranapt_jammy.sh
-          rm add_cranapt_jammy.sh
-      - name: Install R dependencies
-        run: |
-          Rscript mypackage/RFunctions.R
       - name: Generate R.conf
         run: |
           PATH_TO_RSCRIPT=$(which Rscript)
