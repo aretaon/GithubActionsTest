@@ -1,3 +1,5 @@
+install.packages("tmvtnorm")
+
 # First install pak with the standard installation routine
 if (!require("pak",character.only = TRUE))
 {
