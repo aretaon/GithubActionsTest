@@ -4,9 +4,7 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: https://github.com/actions/checkout@v3
       - name: Set up Python
@@ -35,6 +33,7 @@ jobs:
       - name: Check R install
         run: |
           python -c "from mypackage import r_helper; r_helper.return_r_path()"
+          Rscript mypackage/RFunctions.R
       - name: Build docs
         uses: https://github.com/uibcdf/action-sphinx-docs-to-gh-pages@v2.0.0
         with:
