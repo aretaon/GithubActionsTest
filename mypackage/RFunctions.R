@@ -12,14 +12,14 @@ BC_packages <- c("limma", "vsn", "RankProd", "pcaMethods", "impute", "Summarized
 github_packages <- c("cran/DMwR", "kreutz-lab/DIMAR")
 URL_install <- c("url::https://cran.r-project.org/src/contrib/Archive/imputation/imputation_1.3.tar.gz")
 
-installedPackges <- rownames(installed.packages())
+installedPackages <- rownames(installed.packages())
 for (package in c(URL_install, github_packages, CRAN_packages, BC_packages)){
-  if (x %in% installedPackges){
-    require(x,character.only = TRUE)
+  if (package %in% installedPackages){
+    require(package, character.only = TRUE)
     }
   else{
     pak::pkg_install(package)
-    require(x,character.only = TRUE)
+    require(package,character.only = TRUE)
     }
 }
 
