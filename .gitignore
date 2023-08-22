@@ -10,3 +10,6 @@
 /tests/badges/*
 /.coverage
 /.idea/GithubActionsTest.iml
+/venv/
+/tests/badges/
+/mypackage/R.conf
