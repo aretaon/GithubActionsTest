@@ -49,8 +49,6 @@ jobs:
           pytest -s --verbose -p no:cacheprovider tests
           ls -ltprah tests
           ls -ltprah tests/badges
-        env:
-          GITHUB_PAT_GITHUB_COM: ${{ secrets.API_TOKEN_GITHUB }}
       - name: Remove gitignore
         run: |
           rm .gitignore
