@@ -1,0 +1,7 @@
+GithubActionsTest
+=================
+
+.. toctree::
+   :maxdepth: 4
+
+   mypackage
