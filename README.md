@@ -1,7 +1,7 @@
 # GutHUB Actions Test
 
-![CI](https://bc2-silicon.biozentrum.uni-wuerzburg.de/jub29yk/actRunner-Test/raw/branch/badges/tests.svg)
-![coverage](https://bc2-silicon.biozentrum.uni-wuerzburg.de/jub29yk/actRunner-Test/raw/branch/badges/coverage.svg)
+![CI](https://github.com/aretaon/GithubActionsTest/blob/badges/tests.svg)
+![coverage](https://github.com/aretaon/GithubActionsTest/blob/badges/coverage.svg)
 
 This is a testing repository for using [Github Actions](https://github.com/features/actions) and unittests.
 The documentation is automatically generated from docstrings using doctest and sphinx. The build of the docs is performed in the actions' workflow.
