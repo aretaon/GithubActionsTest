@@ -1,8 +1,8 @@
 import os
-from subprocess import check_output
 
 # global var that stores the paths to the config files
 config_dir = {}
+
 
 def check_r_install():
     base_path = os.path.join(os.path.dirname(os.path.realpath(__file__)))

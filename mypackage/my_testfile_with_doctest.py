@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 from . import r_helper
-from subprocess import run, PIPE, STDOUT
+from subprocess import run, PIPE
 
 RFUNCTIONS, R = r_helper.return_r_path()
 

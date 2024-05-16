@@ -7,3 +7,5 @@ pytest-local-badge
 pytest-sphinx
 pytest-sugar
 seaborn
+numpy
+matplotlib
