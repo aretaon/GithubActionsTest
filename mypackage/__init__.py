@@ -1,1 +1,1 @@
-from .my_testfile_with_doctest import *
+from .my_testfile import *

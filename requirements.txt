@@ -1,8 +1,8 @@
 numpydoc
 pip-chill
 pydata-sphinx-theme
+pytest
 pytest-cov
-pytest-doctestplus
 pytest-local-badge
 pytest-sphinx
 pytest-sugar

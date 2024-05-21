@@ -7,12 +7,12 @@ config_dir = {}
 def check_r_install():
     base_path = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
-    if not os.path.isfile(os.path.join(base_path, 'R.conf')):
-        with open(os.path.join(base_path, 'R.conf'), 'w') as wf:
-            wf.write(f"R = PATH_TO_RSCRIPT\nRFUNCTIONS = {os.path.join(base_path, 'RFunctions.R')}")
-        raise OSError('No R installation configured. Generated autoprot.conf. Please edit and try again.')
+    if not os.path.isfile(os.path.join(str(base_path), 'R.conf')):
+        with open(os.path.join(str(base_path), 'R.conf'), 'w') as wf:
+            wf.write(f"R = PATH_TO_RSCRIPT\nRFUNCTIONS = {os.path.join(str(base_path), 'RFunctions.R')}")
+        raise OSError('No R installation configured. Generated R.conf. Please edit and try again.')
     else:
-        with open(os.path.join(base_path, 'R.conf'), 'r') as rf:
+        with open(os.path.join(str(base_path), 'R.conf'), 'r') as rf:
             for line in rf:
                 splitline = [x.strip() for x in line.split('=')]
                 if len(splitline) == 2:

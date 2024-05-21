@@ -27,26 +27,12 @@ def plot_something(x: str, y: str) -> plt.figure:
     --------
     This is an example plot
 
-    >>> fig = plot_something('species', 'petal_length')  # doctest: +SKIP
-    >>> fig.show() # doctest: +SKIP
-
     .. plot::
         :context: close-figs
 
-        >>> from mypackage import plot_something
-        >>> fig = plot_something('species', 'petal_length')
-        >>> fig.show()
-
-    .. testsetup::
-
-        >>> fig = plot_something('species', 'petal_length')
-        >>> data = fig.axes[0].collections[0].get_offsets().data
-
-    .. testcode::
-        :hide:
-
-        >>> np.median(data[data.T[0] == 1].T[1])
-        4.35
+        from mypackage import plot_something
+        fig = plot_something('species', 'petal_length')
+        fig.show()
     """
     iris = sns.load_dataset("iris")
     fig, ax = plt.subplots()
@@ -79,7 +65,6 @@ def a_function_with_R(test_string):
     print(f"Calling: {command}")
 
     p = run(command,
-            #timeout=180,
             stdout=PIPE,
             universal_newlines=True)
 
