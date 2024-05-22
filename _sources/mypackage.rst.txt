@@ -1,0 +1,29 @@
+mypackage package
+=================
+
+Submodules
+----------
+
+mypackage.my\_testfile module
+-----------------------------
+
+.. automodule:: mypackage.my_testfile
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mypackage.r\_helper module
+--------------------------
+
+.. automodule:: mypackage.r_helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mypackage
+   :members:
+   :undoc-members:
+   :show-inheritance:
