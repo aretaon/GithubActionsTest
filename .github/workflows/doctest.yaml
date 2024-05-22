@@ -44,6 +44,8 @@ jobs:
           branch: main
           dir_docs: docsrc
       - name: Test with pytest
+        env:
+          PYTHONPATH: .
         run: |
           mkdir -p tests/badges
           pytest -s --verbose -p no:cacheprovider tests

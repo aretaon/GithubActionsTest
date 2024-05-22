@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from mypackage.my_testfile import plot_something, a_function_with_R
+from mypackage.my_testfile import a_function_with_R
 
 
 class TestMyPackage(unittest.TestCase):
